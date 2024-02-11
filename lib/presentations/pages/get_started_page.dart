@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nft_market/presentations/pages/sign_up_page.dart';
 import 'package:nft_market/presentations/widgets/button_widget.dart';
 import 'package:nft_market/presentations/widgets/page_widget.dart';
 
@@ -38,7 +39,10 @@ class GetStarted extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 40),
             child: ButtonWidget(
               text: "Getting Started",
-              OnPress: () {},
+              OnPress: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (builder) => SignUpPage()));
+              },
             ),
           )
         ]),
