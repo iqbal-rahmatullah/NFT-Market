@@ -17,11 +17,12 @@ class ButtonWidget extends StatelessWidget {
     return TextButton(
         onPressed: OnPress,
         style: TextButton.styleFrom(
-          minimumSize: (isFull) ? Size.fromHeight(51) : null,
-          backgroundColor: ColorConstant.primary,
-          foregroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-        ),
+            minimumSize: (isFull) ? Size.fromHeight(51) : null,
+            backgroundColor: ColorConstant.primary,
+            foregroundColor: Colors.white,
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16))),
         child: Text(
           text,
           style: GoogleFonts.inter(
