@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nft_market/presentations/pages/sign_in_page.dart';
+import 'package:nft_market/presentations/pages/sign_up_page.dart';
 import 'package:nft_market/presentations/widgets/button_widget.dart';
 import 'package:nft_market/presentations/widgets/page_widget.dart';
 import 'package:nft_market/presentations/widgets/textfield_widget.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class SignInPage extends StatelessWidget {
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +46,6 @@ class SignUpPage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   TextFieldwidget(
-                                    label: "Full Name",
-                                  ),
-                                  TextFieldwidget(
                                     label: "Email",
                                   ),
                                   TextFieldwidget(
@@ -75,10 +72,10 @@ class SignUpPage extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => SignInPage()));
+                          builder: (builder) => SignUpPage()));
                     },
                     child: Text(
-                      "Sign In to My Account",
+                      "Create A New Account",
                       style: GoogleFonts.inter(
                           fontSize: 16, color: Color(0xff909FB4)),
                     ))
