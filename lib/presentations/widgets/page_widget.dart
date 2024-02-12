@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 
 class PageWidget extends StatelessWidget {
   final Widget child;
-  const PageWidget({super.key, required this.child});
+  final Widget? bottomNavigationBar;
+  const PageWidget({super.key, required this.child, this.bottomNavigationBar});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavigationBar,
       body: Stack(
         fit: StackFit.expand,
         children: [

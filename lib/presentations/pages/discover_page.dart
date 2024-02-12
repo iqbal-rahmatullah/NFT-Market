@@ -13,15 +13,19 @@ class DiscoverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageWidget(
         child: SingleChildScrollView(
-      child: Column(
-        children: [
-          //User Info
-          _userInfo(),
-          _popularBids(),
-          _browse()
-        ],
-      ),
-    ));
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Column(
+              children: [
+                //User Info
+                _userInfo(),
+                _popularBids(),
+                _browse()
+              ],
+            ),
+          ),
+        ),
+        bottomNavigationBar: _bottomNavigation());
   }
 
   Widget _popularBids() {
@@ -172,6 +176,49 @@ class DiscoverPage extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _bottomNavigation() {
+    var itemNavbar = [
+      {"title": "Discover", "status": 1},
+      {"title": "History", "status": 0},
+      {"title": "Wishlist", "status": 0},
+      {"title": "Setting", "status": 0}
+    ];
+
+    return Container(
+      height: 70,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: itemNavbar.map((e) {
+            return TextButton(
+              onPressed: () {},
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                      'assets/svg/icon_${e['title'].toString().toLowerCase()}.svg'),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Text(
+                    e["title"].toString(),
+                    style: GoogleFonts.inter(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: (e['status'] == 1)
+                            ? ColorConstant.primary
+                            : Color(0xff909FB4)),
+                  )
+                ],
+              ),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
