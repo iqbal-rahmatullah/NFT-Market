@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nft_market/presentations/constant/Color.dart';
 import 'package:nft_market/presentations/widgets/bid_card_widget.dart';
+import 'package:nft_market/presentations/widgets/category_card_widget.dart';
 import 'package:nft_market/presentations/widgets/page_widget.dart';
 
 class DiscoverPage extends StatelessWidget {
@@ -17,7 +18,7 @@ class DiscoverPage extends StatelessWidget {
           //User Info
           _userInfo(),
           _popularBids(),
-          // _browse()
+          _browse()
         ],
       ),
     ));
@@ -57,13 +58,33 @@ class DiscoverPage extends StatelessWidget {
   }
 
   Widget _browse() {
+    var allCardCategory = [
+      InfoCategoryCard(
+          imageUrl:
+              "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=3328&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          title: "Vektor",
+          avaible: "12,049 items"),
+      InfoCategoryCard(
+          imageUrl:
+              "https://images.unsplash.com/photo-1635241161466-541f065683ba?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          title: "3D",
+          avaible: "15,239 items"),
+      InfoCategoryCard(
+          imageUrl:
+              "https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          title: "Cartoon",
+          avaible: "15,049 items")
+    ];
+
     return Padding(
         padding: EdgeInsets.only(left: 24, top: 36),
         child: _carouselContainer(
             height: 196,
             title: "Browse",
-            itemBuilder: (context, index) => Text("cek"),
-            itemCount: 5));
+            itemBuilder: (context, index) => CategoryWidget(
+                  infoCard: allCardCategory[index],
+                ),
+            itemCount: allCardCategory.length));
   }
 
   Column _carouselContainer(
